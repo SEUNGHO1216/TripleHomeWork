@@ -10,6 +10,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Entity
+@Table(indexes = {@Index(name = "review_index",columnList = "reviewId")})
 public class Review {
 
     @Id
@@ -19,12 +20,13 @@ public class Review {
     private String content;
 
     private boolean isFirst;
-//    @OneToMany(mappedBy = "review")
-//    private List<String> attachedPhotoIds;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
+    private List<Image> attachedPhotoIds;
+    @ManyToOne(fetch = FetchType.LAZY /*cascade = CascadeType.ALL*/)
     private Place place;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY/* cascade = CascadeType.ALL*/)
     private User user;
 
     public Review(String content, boolean isFirst, Place place, User user){

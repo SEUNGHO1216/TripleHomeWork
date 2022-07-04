@@ -14,7 +14,7 @@ public class Point {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY /*cascade = CascadeType.ALL*/)
     @JsonIgnore
     private User user;
 
