@@ -23,10 +23,10 @@ public class Review {
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<Image> attachedPhotoIds;
-    @ManyToOne(fetch = FetchType.LAZY /*cascade = CascadeType.ALL*/)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Place place;
 
-    @ManyToOne(fetch = FetchType.LAZY/* cascade = CascadeType.ALL*/)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     public Review(String content, boolean isFirst, Place place, User user){

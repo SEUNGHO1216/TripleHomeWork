@@ -22,7 +22,7 @@ public class Image {
     @ManyToOne(fetch = FetchType.LAZY)
     private Review review;
 
-    @ManyToOne(fetch = FetchType.LAZY/*, cascade = CascadeType.ALL*/)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     public Image(String photoId, Review review, User user){
